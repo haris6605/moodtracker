@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" type="text/css" href="signup.css">
+</head>
+<body>
+    <h1 class="page-title">Mood Tracker</h1> <!-- Add this line -->
+    <div class="signup-box">
+        <h2>Sign Up</h2>
+        <form action="signup.php" method="post">
+            <div class="textbox">
+                <input type="text" placeholder="First Name" name="first_name" required>
+            </div>
+            <div class="textbox">
+                <input type="text" placeholder="Last Name" name="last_name" required>
+            </div>
+            <div class="textbox">
+                <input type="email" placeholder="Email" name="email" required>
+            </div>
+            <div class="textbox">
+                <input type="text" placeholder="Username" name="username" required>
+            </div>
+            <div class="textbox">
+                <input type="password" placeholder="Password" name="password" required>
+            </div>
+            <input type="submit" class="btn" value="Sign Up">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </form>
+    </div>
+</body>
+</html>
+
