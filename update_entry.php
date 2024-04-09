@@ -29,20 +29,64 @@ if (mysqli_connect_error()) {
 
     if ($row = $result->fetch_assoc()) {
         // Display update form with pre-filled data
-        echo "<form action='submit_update.php' method='post'>
-                <input type='hidden' name='entry_id' value='" . $row['id'] . "'>
-                <label for='activity'>Activity:</label>
-                <input type='text' id='activity' name='activity' value='" . $row['activity'] . "' required><br><br>
-                <label for='date'>Date:</label>
-                <input type='date' id='date' name='date' value='" . $row['date'] . "' required><br><br>
-                <label for='mood'>Mood:</label>
-                <input type='text' id='mood' name='mood' value='" . $row['mood'] . "' required><br><br>
-                <label for='mental_health'>Mental Health:</label>
-                <input type='text' id='mental_health' name='mental_health' value='" . $row['mental_health'] . "' required><br><br>
-                <label for='goal'>Goal:</label>
-                <input type='text' id='goal' name='goal' value='" . $row['goal'] . "' required><br><br>
-                <input type='submit' value='Submit Update'>
-              </form>";
+        echo "<!DOCTYPE html>
+              <html>
+              <head>
+                  <title>Update Entry</title>
+                  <style>
+                      body {
+                          font-family: Arial, sans-serif;
+                          background-color: #f4f4f4;
+                          padding: 20px;
+                      }
+                      form {
+                          background-color: #fff;
+                          padding: 20px;
+                          border-radius: 5px;
+                          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                      }
+                      label {
+                          display: block;
+                          margin-bottom: 5px;
+                      }
+                      input[type='text'],
+                      input[type='date'] {
+                          width: 100%;
+                          padding: 8px;
+                          margin-bottom: 20px;
+                          border-radius: 5px;
+                          border: 1px solid #ddd;
+                      }
+                      input[type='submit'] {
+                          background: #50a3a2;
+                          color: #ffffff;
+                          border: 0;
+                          padding: 10px 20px;
+                          border-radius: 5px;
+                          cursor: pointer;
+                      }
+                      input[type='submit']:hover {
+                          background: #077187;
+                      }
+                  </style>
+              </head>
+              <body>
+              <form action='submit_update.php' method='post'>
+                  <input type='hidden' name='entry_id' value='" . $row['id'] . "'>
+                  <label for='activity'>Activity:</label>
+                  <input type='text' id='activity' name='activity' value='" . $row['activity'] . "' required><br>
+                  <label for='date'>Date:</label>
+                  <input type='date' id='date' name='date' value='" . $row['date'] . "' required><br>
+                  <label for='mood'>Mood:</label>
+                  <input type='text' id='mood' name='mood' value='" . $row['mood'] . "' required><br>
+                  <label for='mental_health'>Mental Health:</label>
+                  <input type='text' id='mental_health' name='mental_health' value='" . $row['mental_health'] . "' required><br>
+                  <label for='goal'>Goal:</label>
+                  <input type='text' id='goal' name='goal' value='" . $row['goal'] . "' required><br>
+                  <input type='submit' value='Submit Update'>
+                </form>
+              </body>
+              </html>";
     } else {
         echo "Error: Entry not found.";
     }
